@@ -1,35 +1,243 @@
-# Template repo for PHP SDK
+# Celitech PHP SDK
+Version: 1.1.0
+Welcome to the CELITECH API documentation!
 
-This template helps developers get started with publishing the PHP SDK to Packagist package repository.
+Useful links: [Homepage](https://www.celitech.com) | [Support email](mailto:support@celitech.com) | [Blog](https://www.celitech.com/blog/)
 
-## Prerequisites
 
-Before you can publish this SDK to packagist you need to:
-1. Create an account on [Packagist](https://packagist.org/).
-1. Set the following secrets in your repository:
-    - `PACKAGIST_USERNAME`: Your packagist username.
-    - `PACKAGIST_TOKEN`: Your packagist token. You can find it in [your packagist account settings](https://packagist.org/profile/).
+## Install
 
-## Contents
+```bash
+composer install celitech-php-test/sdk
+```
 
-This repository contains the following:
+## Example
 
-- A `README` that contains the instructions
+```php
+<?php
 
-## Instructions
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
 
-1. Create a new target PHP SDK Repo by clicking the **Use this template** button at the top of this repository.
+use Celitech\Client;
 
-1. If you already have a Control Repo:
+$client = new Client();
 
-    1. Update your `LIBLAB_GITHUB_TOKEN` actions secret to a new token that has access to all your existing SDK repos, as well as this new one.
+```
 
-    1. Update the [`githubRepoName` field in the `php` section](https://developers.liblab.com/cli/config-file-overview-language/#githubreponame) of your liblab config file to the name of your new repo.
+## Services
+### Destinations
+#### listDestinations
+List Destinations
+```PHP
+<?php
 
-1. Run the GitHub Action `Generate SDKs using liblab` in the Control Repo that builds the SDK, and raises a PR against this target SDK Repo. This will be triggered automatically when you commit and push the update to the liblab config file.
+use Celitech\Client;
 
-1. Review and merge the PR.
+$sdk = new Client();
 
-1. Create a new release here in the PHP SDK repo.
+$response = $sdk->Destinations->listDestinations();
 
-1. (First time only) Go to the [Packagist](https://packagist.org/) website and click the `Submit` button to submit your package. Enter in the URL of your GitHub repository and Packagist will automatically update your package when you push a new release. Subsequent releases will be automatically updated on Packagist.
+print_r($response);
+```
+### Packages
+#### listPackages
+List Packages
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->Packages->listPackages(
+  destination: "destination",
+  startDate: "startDate",
+  endDate: "endDate",
+  afterCursor: "afterCursor",
+  limit: 123,
+  startTime: 123,
+  endTime: 123,
+  duration: 123
+);
+
+print_r($response);
+```
+### Purchases
+#### listPurchases
+List Purchases
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->Purchases->listPurchases(
+  iccid: "iccid",
+  afterDate: "afterDate",
+  beforeDate: "beforeDate",
+  afterCursor: "afterCursor",
+  limit: 123,
+  after: 123,
+  before: 123
+);
+
+print_r($response);
+```
+#### createPurchase
+Create Purchase
+```PHP
+<?php
+
+use Celitech\Client;
+use Celitech\Model\CreatePurchaseRequest;
+
+$sdk = new Client();
+
+
+$input = new CreatePurchaseRequest(
+  destination: "destination",
+  dataLimitInGB: 123,
+  startDate: "startDate",
+  endDate: "endDate",
+  email: "email",
+  networkBrand: "networkBrand",
+  startTime: 123,
+  endTime: 123
+);
+
+$response = $sdk->Purchases->createPurchase(
+  input: $input
+);
+
+print_r($response);
+```
+#### topUpEsim
+Top-up eSIM
+```PHP
+<?php
+
+use Celitech\Client;
+use Celitech\Model\TopUpEsimRequest;
+
+$sdk = new Client();
+
+
+$input = new TopUpEsimRequest(
+  iccid: "iccid",
+  dataLimitInGB: 123,
+  startDate: "startDate",
+  endDate: "endDate",
+  email: "email",
+  startTime: 123,
+  endTime: 123
+);
+
+$response = $sdk->Purchases->topUpEsim(
+  input: $input
+);
+
+print_r($response);
+```
+#### editPurchase
+Edit Purchase
+```PHP
+<?php
+
+use Celitech\Client;
+use Celitech\Model\EditPurchaseRequest;
+
+$sdk = new Client();
+
+
+$input = new EditPurchaseRequest(
+  purchaseId: "purchaseId",
+  startDate: "startDate",
+  endDate: "endDate",
+  startTime: 123,
+  endTime: 123
+);
+
+$response = $sdk->Purchases->editPurchase(
+  input: $input
+);
+
+print_r($response);
+```
+#### getPurchaseConsumption
+Get Purchase Consumption
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->Purchases->getPurchaseConsumption(
+  purchaseId: "purchaseId"
+);
+
+print_r($response);
+```
+### ESim
+#### getEsim
+Get eSIM Status
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->ESim->getEsim(
+  iccid: "iccid"
+);
+
+print_r($response);
+```
+#### getEsimDevice
+Get eSIM Device
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->ESim->getEsimDevice(
+  iccid: "iccid"
+);
+
+print_r($response);
+```
+#### getEsimHistory
+Get eSIM History
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->ESim->getEsimHistory(
+  iccid: "iccid"
+);
+
+print_r($response);
+```
+#### getEsimMac
+Get eSIM MAC
+```PHP
+<?php
+
+use Celitech\Client;
+
+$sdk = new Client();
+
+$response = $sdk->ESim->getEsimMac(
+  iccid: "iccid"
+);
+
+print_r($response);
+```

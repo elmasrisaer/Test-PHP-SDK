@@ -1,0 +1,157 @@
+{
+  "liblabVersion": "2.1.7",
+  "date": "2024-05-09T13:13:24.874Z",
+  "config": {
+    "apiId": 757,
+    "baseUrl": "https://api.celitech.net/v1",
+    "sdkName": "Celitech",
+    "sdkVersion": "1.1.55",
+    "liblabVersion": "1",
+    "deliveryMethods": ["zip"],
+    "languages": ["php"],
+    "apiVersion": "1.1.55",
+    "specFilePath": "swagger.yaml",
+    "createDocs": false,
+    "languageOptions": {
+      "php": {
+        "packageName": "celitech-php-test/sdk",
+        "githubRepoName": "Test-PHP-SDK",
+        "sdkVersion": "1.1.55",
+        "additionalConstructorParameters": [
+          {
+            "name": "clientId",
+            "example": "some-client-id"
+          },
+          {
+            "name": "clientSecret",
+            "example": "some-client"
+          }
+        ]
+      }
+    },
+    "publishing": {
+      "githubOrg": "elmasrisaer"
+    },
+    "devContainer": true,
+    "environments": [
+      {
+        "name": "production",
+        "url": "https://api.celitech.net/v1"
+      },
+      {
+        "name": "sandbox",
+        "url": "https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test"
+      }
+    ],
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": false,
+    "inferServiceNames": false,
+    "injectedModels": [],
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "hooksLocation": {
+      "bucketKey": "5289/hooks.zip",
+      "bucketName": "prod-liblab-api-stack-hooks"
+    },
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/757/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240509%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240509T131319Z&X-Amz-Expires=43200&X-Amz-Signature=5f8615d08c93b9ae0743b38cde98ed67c0950778a99684485f3161642b716ddc&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "includeWatermark": false,
+    "packageName": "celitech-php-test/sdk",
+    "githubRepoName": "Test-PHP-SDK",
+    "additionalConstructorParameters": [
+      {
+        "name": "clientId",
+        "example": "some-client-id"
+      },
+      {
+        "name": "clientSecret",
+        "example": "some-client"
+      }
+    ],
+    "language": "php",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": true,
+      "sourceDir": "/tmp/resources/hooks"
+    },
+    "usesFormData": false,
+    "authentication": {},
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.6.8"
+      },
+      "languages": ["typescript"]
+    },
+    "auth": [],
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    }
+  },
+  "files": [
+    ".gitignore",
+    "README.md",
+    "src/Client.php",
+    "composer.json",
+    "example/index.php",
+    "src/services/BaseService.php",
+    "src/services/Destinations.php",
+    "src/services/Packages.php",
+    "src/services/Purchases.php",
+    "src/services/ESim.php",
+    "src/hooks/HookInterface.php",
+    "src/hooks/CustomHook.php",
+    "src/Environment.php",
+    "./LICENSE",
+    "src/Retry.php",
+    ".devcontainer/devcontainer.json",
+    "src/models/ListDestinationsOkResponse.php",
+    "src/models/ListPackagesOkResponse.php",
+    "src/models/ListPurchasesOkResponse.php",
+    "src/models/CreatePurchaseRequest.php",
+    "src/models/CreatePurchaseOkResponse.php",
+    "src/models/TopUpEsimRequest.php",
+    "src/models/TopUpEsimOkResponse.php",
+    "src/models/EditPurchaseRequest.php",
+    "src/models/EditPurchaseOkResponse.php",
+    "src/models/GetPurchaseConsumptionOkResponse.php",
+    "src/models/GetEsimOkResponse.php",
+    "src/models/GetEsimDeviceOkResponse.php",
+    "src/models/GetEsimHistoryOkResponse.php",
+    "src/models/GetEsimMacOkResponse.php",
+    "src/models/Destinations.php",
+    "src/models/Packages.php",
+    "src/models/Purchases.php",
+    "src/models/Package.php",
+    "src/models/PurchasesEsim.php",
+    "src/models/CreatePurchaseOkResponsePurchase.php",
+    "src/models/CreatePurchaseOkResponseProfile.php",
+    "src/models/TopUpEsimOkResponsePurchase.php",
+    "src/models/TopUpEsimOkResponseProfile.php",
+    "src/models/GetEsimOkResponseEsim.php",
+    "src/models/Device.php",
+    "src/models/GetEsimHistoryOkResponseEsim.php",
+    "src/models/History.php",
+    "src/models/GetEsimMacOkResponseEsim.php",
+    "src/utils/Serializer.php"
+  ]
+}
