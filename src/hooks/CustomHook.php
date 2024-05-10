@@ -6,10 +6,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Client;
 use Exception;
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
 
 class CustomHook implements HookInterface
 {
@@ -19,6 +15,14 @@ class CustomHook implements HookInterface
     private $token;
     private $tokenExpiration;
 
+    public function __construct($clientId, $clientSecret)
+    {
+        $this->clientId = $clientId;
+        $this->clientSecret = $clientSecret;
+        $this->token = null;
+        $this->tokenExpiration = null;
+    }
+
     private function setTokenUrl(RequestInterface $request)
     {
         $host = $request->getUri()->getHost();
@@ -26,7 +30,7 @@ class CustomHook implements HookInterface
         if (strpos($host, 'celitech.net') !== false) {
             $newTokenUrl = 'https://auth.celitech.net/oauth2/token';
         } else {
-            $newTokenUrl = 'https://test-core-partners.auth.us-east-1.amazoncognito.com/oauth2/token';
+            $newTokenUrl = 'https://qa-core-partners.auth.us-east-1.amazoncognito.com/oauth2/token';
         }
 
         // Check if the token URL has changed
@@ -40,22 +44,14 @@ class CustomHook implements HookInterface
 
     private function refreshToken()
     {
-        $clientId = $_ENV['CLIENT_ID'];
-        $clientSecret = $_ENV['CLIENT_SECRET'];
-
-        if (!$clientId || !$clientSecret) {
-            echo 'Missing CLIENT_ID and/or CLIENT_SECRET environment variables' . "\n";
-            return;
-        }
-
         $client = new Client();
         $response = $client->post($this->tokenUrl, [
             'headers' => [
                 'Content-Type' => 'application/x-www-form-urlencoded',
             ],
             'form_params' => [
-                'client_id' => $clientId,
-                'client_secret' => $clientSecret,
+                'client_id' => $this->clientId,
+                'client_secret' => $this->clientSecret,
                 'grant_type' => 'client_credentials',
             ],
         ]);
