@@ -6,8 +6,10 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Client;
 use Exception;
+use Dotenv\Dotenv;
 
-$env = parse_ini_file('.env');
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
 
 class CustomHook implements HookInterface
 {
@@ -24,7 +26,7 @@ class CustomHook implements HookInterface
         if (strpos($host, 'celitech.net') !== false) {
             $newTokenUrl = 'https://auth.celitech.net/oauth2/token';
         } else {
-            $newTokenUrl = 'https://qa-core-partners.auth.us-east-1.amazoncognito.com/oauth2/token';
+            $newTokenUrl = 'https://test-core-partners.auth.us-east-1.amazoncognito.com/oauth2/token';
         }
 
         // Check if the token URL has changed
@@ -38,30 +40,25 @@ class CustomHook implements HookInterface
 
     private function refreshToken()
     {
-        global $env;
+        $clientId = $_ENV['CLIENT_ID'];
+        $clientSecret = $_ENV['CLIENT_SECRET'];
 
-        $this->clientId = $env['CLIENT_ID'];
-        $this->clientSecret = $env['CLIENT_SECRET'];
-
-        if (!$this->clientId || !$this->clientSecret) {
-            echo 'Missing CLIENT_ID and/or CLIENT_SECRET environment variables';
+        if (!$clientId || !$clientSecret) {
+            echo 'Missing CLIENT_ID and/or CLIENT_SECRET environment variables' . "\n";
             return;
         }
 
         $client = new Client();
-
-        if (!$clientId || !clientScrey) {
-            $response = $client->post($this->tokenUrl, [
-                'headers' => [
-                    'Content-Type' => 'application/x-www-form-urlencoded',
-                ],
-                'form_params' => [
-                    'client_id' => $this->clientId,
-                    'client_secret' => $this->clientSecret,
-                    'grant_type' => 'client_credentials',
-                ],
-            ]);
-        }
+        $response = $client->post($this->tokenUrl, [
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded',
+            ],
+            'form_params' => [
+                'client_id' => $clientId,
+                'client_secret' => $clientSecret,
+                'grant_type' => 'client_credentials',
+            ],
+        ]);
 
         $data = json_decode($response->getBody(), true);
         $this->token = $data['access_token'];
