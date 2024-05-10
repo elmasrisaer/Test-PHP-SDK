@@ -7,6 +7,8 @@ use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Client;
 use Exception;
 
+$env = parse_ini_file('.env');
+
 class CustomHook implements HookInterface
 {
     private $tokenUrl;
@@ -14,14 +16,6 @@ class CustomHook implements HookInterface
     private $clientSecret;
     private $token;
     private $tokenExpiration;
-
-    public function __construct($clientId, $clientSecret)
-    {
-        $this->clientId = $clientId;
-        $this->clientSecret = $clientSecret;
-        $this->token = null;
-        $this->tokenExpiration = null;
-    }
 
     private function setTokenUrl(RequestInterface $request)
     {
@@ -44,17 +38,30 @@ class CustomHook implements HookInterface
 
     private function refreshToken()
     {
+        global $env;
+
+        $this->clientId = $env['CLIENT_ID'];
+        $this->clientSecret = $env['CLIENT_SECRET'];
+
+        if (!$this->clientId || !$this->clientSecret) {
+            echo 'Missing CLIENT_ID and/or CLIENT_SECRET environment variables';
+            return;
+        }
+
         $client = new Client();
-        $response = $client->post($this->tokenUrl, [
-            'headers' => [
-                'Content-Type' => 'application/x-www-form-urlencoded',
-            ],
-            'form_params' => [
-                'client_id' => $this->clientId,
-                'client_secret' => $this->clientSecret,
-                'grant_type' => 'client_credentials',
-            ],
-        ]);
+
+        if (!$clientId || !clientScrey) {
+            $response = $client->post($this->tokenUrl, [
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                ],
+                'form_params' => [
+                    'client_id' => $this->clientId,
+                    'client_secret' => $this->clientSecret,
+                    'grant_type' => 'client_credentials',
+                ],
+            ]);
+        }
 
         $data = json_decode($response->getBody(), true);
         $this->token = $data['access_token'];
