@@ -40,21 +40,21 @@ class Purchases extends BaseService
         return Serializer::deserialize($data, ListPurchasesOkResponse::class);
     }
 
-    public function createPurchase(?CreatePurchaseRequest $input = null): CreatePurchaseOkResponse
+    public function createPurchase(CreatePurchaseRequest $input): CreatePurchaseOkResponse
     {
         $data = $this->sendRequest('post', '/purchases', ['json' => Serializer::serialize($input)]);
 
         return Serializer::deserialize($data, CreatePurchaseOkResponse::class);
     }
 
-    public function topUpESIM(?TopUpEsimRequest $input = null): TopUpEsimOkResponse
+    public function topUpESIM(TopUpEsimRequest $input): TopUpEsimOkResponse
     {
         $data = $this->sendRequest('post', '/purchases/topup', ['json' => Serializer::serialize($input)]);
 
         return Serializer::deserialize($data, TopUpEsimOkResponse::class);
     }
 
-    public function editPurchase(?EditPurchaseRequest $input = null): EditPurchaseOkResponse
+    public function editPurchase(EditPurchaseRequest $input): EditPurchaseOkResponse
     {
         $data = $this->sendRequest('post', '/purchases/edit', ['json' => Serializer::serialize($input)]);
 
