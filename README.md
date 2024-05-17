@@ -16,12 +16,13 @@ composer install celitech-php-test/sdk
 ```php
 <?php
 
-// Require the Composer autoloader.
-require 'vendor/autoload.php';
-
 use Celitech\Client;
 
-$client = new Client();
+$sdk = new Client();
+
+$response = $sdk->Destinations->listDestinations();
+
+print_r($response);
 
 ```
 
@@ -50,16 +51,7 @@ use Celitech\Client;
 
 $sdk = new Client();
 
-$response = $sdk->Packages->listPackages(
-  destination: "destination",
-  startDate: "startDate",
-  endDate: "endDate",
-  afterCursor: "afterCursor",
-  limit: 123,
-  startTime: 123,
-  endTime: 123,
-  duration: 123
-);
+$response = $sdk->Packages->listPackages();
 
 print_r($response);
 ```
@@ -73,15 +65,7 @@ use Celitech\Client;
 
 $sdk = new Client();
 
-$response = $sdk->Purchases->listPurchases(
-  iccid: "iccid",
-  afterDate: "afterDate",
-  beforeDate: "beforeDate",
-  afterCursor: "afterCursor",
-  limit: 123,
-  after: 123,
-  before: 123
-);
+$response = $sdk->Purchases->listPurchases();
 
 print_r($response);
 ```
@@ -91,14 +75,14 @@ Create Purchase
 <?php
 
 use Celitech\Client;
-use Celitech\Model\CreatePurchaseRequest;
+use Celitech\Models\CreatePurchaseRequest;
 
 $sdk = new Client();
 
 
 $input = new CreatePurchaseRequest(
   destination: "destination",
-  dataLimitInGB: 123,
+  dataLimitInGb: 123,
   startDate: "startDate",
   endDate: "endDate",
   email: "email",
@@ -119,14 +103,14 @@ Top-up eSIM
 <?php
 
 use Celitech\Client;
-use Celitech\Model\TopUpEsimRequest;
+use Celitech\Models\TopUpEsimRequest;
 
 $sdk = new Client();
 
 
 $input = new TopUpEsimRequest(
   iccid: "iccid",
-  dataLimitInGB: 123,
+  dataLimitInGb: 123,
   startDate: "startDate",
   endDate: "endDate",
   email: "email",
@@ -146,7 +130,7 @@ Edit Purchase
 <?php
 
 use Celitech\Client;
-use Celitech\Model\EditPurchaseRequest;
+use Celitech\Models\EditPurchaseRequest;
 
 $sdk = new Client();
 

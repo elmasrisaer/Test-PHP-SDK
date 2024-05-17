@@ -18,7 +18,7 @@ class Retry
         'maxDelayMs' => 5000,
         'delayJitter' => 50,
         'delayMultiplier' => 2,
-        'retryableStatuses' => [408, 429, 500, 502, 503, 504],
+        'retryableStatuses' => [429, 500, 502, 503, 504],
         'retryableMethods' => ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     ];
 
