@@ -22,7 +22,7 @@ class CustomHook implements HookInterface
      * } $params
      */
 
-    public function __construct($clientId, $clientSecret)
+    public function __construct(array $params)
     {
         $this->clientId = $params['client_id'];
         $this->clientSecret = $params['client_secret'];
