@@ -15,10 +15,17 @@ class CustomHook implements HookInterface
     private $token;
     private $tokenExpiration;
 
+    /**
+     * @param array{
+     *   client_id: string,
+     *   client_secret: string
+     * } $params
+     */
+
     public function __construct($clientId, $clientSecret)
     {
-        $this->clientId = $clientId;
-        $this->clientSecret = $clientSecret;
+        $this->clientId = $params['client_id'];
+        $this->clientSecret = $params['client_secret'];
         $this->token = null;
         $this->tokenExpiration = null;
     }
