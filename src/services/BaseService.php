@@ -17,11 +17,8 @@ class BaseService
     protected string $baseUrl;
     protected array $options;
 
-    public function __construct(
-        string $environment = Environment::Default,
-        string $clientId = '',
-        string $clientSecret = ''
-    ) {
+    public function __construct(string $environment = Environment::Default)
+    {
         $this->options = [
             'headers' => [],
         ];
@@ -32,7 +29,7 @@ class BaseService
 
         $stack->push(Retry::factory());
 
-        $hook = new CustomHook($clientId, $clientSecret);
+        $hook = new CustomHook([]);
         $stack->push($this->hookMiddleware($hook));
 
         $this->client = new Client([
