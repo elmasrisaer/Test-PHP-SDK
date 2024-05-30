@@ -1,6 +1,6 @@
 {
   "liblabVersion": "2.1.10",
-  "date": "2024-05-30T09:25:42.200Z",
+  "date": "2024-05-30T09:42:52.217Z",
   "config": {
     "apiId": 811,
     "baseUrl": "https://api.celitech.net/v1",
@@ -61,10 +61,10 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "5571/hooks.zip",
+      "bucketKey": "5572/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
-    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/811/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240530T092537Z&X-Amz-Expires=43200&X-Amz-Signature=2aafaa7cfc928b2fdbb1b7bcab9dacbf0e7029674e79ae043e690754effab087&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/811/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240530T094247Z&X-Amz-Expires=43200&X-Amz-Signature=44b39ff60be796e70dbb34b38b52bb538c2a753c1e65ecf536b4e2714984f11f&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": false,
     "packageName": "celitech-php-test/sdk",
     "githubRepoName": "Test-PHP-SDK",
