@@ -18,7 +18,7 @@ composer install celitech-php-test/sdk
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Destinations->listDestinations();
 
@@ -35,7 +35,7 @@ List Destinations
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Destinations->listDestinations();
 
@@ -49,7 +49,7 @@ List Packages
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Packages->listPackages();
 
@@ -63,7 +63,7 @@ List Purchases
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Purchases->listPurchases();
 
@@ -77,7 +77,7 @@ Create Purchase
 use Celitech\Client;
 use Celitech\Models\CreatePurchaseRequest;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 
 $input = new CreatePurchaseRequest(
@@ -105,7 +105,7 @@ Top-up eSIM
 use Celitech\Client;
 use Celitech\Models\TopUpEsimRequest;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 
 $input = new TopUpEsimRequest(
@@ -132,7 +132,7 @@ Edit Purchase
 use Celitech\Client;
 use Celitech\Models\EditPurchaseRequest;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 
 $input = new EditPurchaseRequest(
@@ -156,7 +156,7 @@ Get Purchase Consumption
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Purchases->getPurchaseConsumption(
   purchaseId: "purchaseId"
@@ -172,7 +172,7 @@ Get eSIM Status
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->ESim->getEsim(
   iccid: "iccid"
@@ -187,7 +187,7 @@ Get eSIM Device
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->ESim->getEsimDevice(
   iccid: "iccid"
@@ -202,7 +202,7 @@ Get eSIM History
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->ESim->getEsimHistory(
   iccid: "iccid"
@@ -217,7 +217,7 @@ Get eSIM MAC
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->ESim->getEsimMac(
   iccid: "iccid"
