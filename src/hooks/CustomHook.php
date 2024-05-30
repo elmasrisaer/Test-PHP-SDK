@@ -17,15 +17,19 @@ class CustomHook implements HookInterface
 
     /**
      * @param array{
-     *   client_id: string,
-     *   client_secret: string
+     *   clientId: string,
+     *   clientSecret: string
      * } $params
      */
 
     public function __construct(array $params)
     {
+        if (empty($params['clientId']) || empty($params['clientSecret'])) {
+            echo 'Missing clientId or clientSecret, please provide all credentials.';
+            return;
+        }
         $this->clientId = $params['clientId'];
-        $this->clientSecret = $params['client_secret'];
+        $this->clientSecret = $params['clientSecret'];
         $this->token = null;
         $this->tokenExpiration = null;
     }

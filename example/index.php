@@ -6,7 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Celitech\Client;
 
-$sdk = new Client();
+$sdk = new Client(clientId: 'client-id', clientSecret: 'client-secret');
 
 $response = $sdk->Destinations->listDestinations();
 
