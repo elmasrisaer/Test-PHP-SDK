@@ -16,13 +16,17 @@ class CustomHook implements HookInterface
     private $tokenExpiration;
 
     /**
+     * Constructor for the class.
+     *
+     * Initializes the object with the given parameters.
+     *
      * @param array{
      *   clientId: string,
      *   clientSecret: string
-     * } $params
+     * } $params Associative array containing 'clientId' and 'clientSecret'.
      */
 
-    public function __construct(array $params)
+    public function __construct($params)
     {
         if (empty($params['clientId']) || empty($params['clientSecret'])) {
             echo 'Missing clientId or clientSecret, please provide all credentials.';
