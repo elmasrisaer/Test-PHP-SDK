@@ -13,12 +13,15 @@ class Client
     public $Purchases;
     public $ESim;
 
-    public function __construct(string $environment = Environment::Default)
-    {
-        $this->Destinations = new Services\Destinations($environment);
-        $this->Packages = new Services\Packages($environment);
-        $this->Purchases = new Services\Purchases($environment);
-        $this->ESim = new Services\ESim($environment);
+    public function __construct(
+        string $environment = Environment::Default,
+        string $clientId = '',
+        string $clientSecret = ''
+    ) {
+        $this->Destinations = new Services\Destinations($environment, $clientId, $clientSecret);
+        $this->Packages = new Services\Packages($environment, $clientId, $clientSecret);
+        $this->Purchases = new Services\Purchases($environment, $clientId, $clientSecret);
+        $this->ESim = new Services\ESim($environment, $clientId, $clientSecret);
     }
 
     public function setBaseUrl(string $url)
