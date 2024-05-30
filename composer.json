@@ -1,6 +1,6 @@
 {
   "name": "celitech-php-test/sdk",
-  "version": "1.1.68",
+  "version": "1.1.69",
   "type": "library",
   "require": {
     "php": "^8.0",

@@ -1,22 +1,37 @@
 {
   "liblabVersion": "2.1.10",
-  "date": "2024-05-29T15:55:58.164Z",
+  "date": "2024-05-30T09:00:28.733Z",
   "config": {
-    "apiId": 809,
+    "apiId": 811,
     "baseUrl": "https://api.celitech.net/v1",
     "sdkName": "Celitech",
-    "sdkVersion": "1.1.68",
+    "sdkVersion": "1.1.69",
     "liblabVersion": "1",
     "deliveryMethods": ["zip"],
     "languages": ["php"],
-    "apiVersion": "1.1.68",
+    "apiVersion": "1.1.69",
     "specFilePath": "swagger.yaml",
     "createDocs": false,
     "languageOptions": {
+      "java": {
+        "githubRepoName": "Test-Java-SDK",
+        "liblabVersion": "2",
+        "sdkVersion": "1.1.69"
+      },
       "php": {
         "packageName": "celitech-php-test/sdk",
+        "additionalConstructorParameters": [
+          {
+            "name": "clientId",
+            "example": "client-id"
+          },
+          {
+            "name": "clientSecret",
+            "example": "client-secret"
+          }
+        ],
         "githubRepoName": "Test-PHP-SDK",
-        "sdkVersion": "1.1.68"
+        "sdkVersion": "1.1.69"
       }
     },
     "publishing": {
@@ -56,12 +71,22 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "5549/hooks.zip",
+      "bucketKey": "5570/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
-    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/809/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T155553Z&X-Amz-Expires=43200&X-Amz-Signature=e66e877dea556d0561ad3c7885a430aa8ba94a4f5c4d2a9babb73269995dafc1&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/811/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240530T090024Z&X-Amz-Expires=43200&X-Amz-Signature=f40e7e115749e88b9176f3a386c1fc93353d071cfde0338071230f46922e5994&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": false,
     "packageName": "celitech-php-test/sdk",
+    "additionalConstructorParameters": [
+      {
+        "name": "clientId",
+        "example": "client-id"
+      },
+      {
+        "name": "clientSecret",
+        "example": "client-secret"
+      }
+    ],
     "githubRepoName": "Test-PHP-SDK",
     "language": "php",
     "deliveryMethod": "zip",
