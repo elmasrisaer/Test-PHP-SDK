@@ -29,7 +29,7 @@ class CustomHook implements HookInterface
     public function __construct($params)
     {
         if (empty($params['clientId']) || empty($params['clientSecret'])) {
-            echo 'Missing clientId or clientSecret, please provide all credentials.';
+            echo 'Missing clientId or clientSecret, please provide all credentials.' . "\n";
             return;
         }
         $this->clientId = $params['clientId'];
