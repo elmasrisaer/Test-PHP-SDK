@@ -1,23 +1,18 @@
 {
-  "liblabVersion": "2.1.10",
-  "date": "2024-05-30T15:37:30.236Z",
+  "liblabVersion": "2.1.11",
+  "date": "2024-06-03T08:37:56.765Z",
   "config": {
-    "apiId": 812,
+    "apiId": 819,
     "baseUrl": "https://api.celitech.net/v1",
     "sdkName": "Celitech",
-    "sdkVersion": "1.1.70",
+    "sdkVersion": "1.1.71",
     "liblabVersion": "1",
     "deliveryMethods": ["zip"],
     "languages": ["php"],
-    "apiVersion": "1.1.70",
+    "apiVersion": "1.1.71",
     "specFilePath": "swagger.yaml",
     "createDocs": false,
     "languageOptions": {
-      "java": {
-        "githubRepoName": "Test-Java-SDK",
-        "liblabVersion": "2",
-        "sdkVersion": "1.1.70"
-      },
       "php": {
         "packageName": "celitech-php-test/sdk",
         "additionalConstructorParameters": [
@@ -31,7 +26,7 @@
           }
         ],
         "githubRepoName": "Test-PHP-SDK",
-        "sdkVersion": "1.1.70"
+        "sdkVersion": "1.1.71"
       }
     },
     "publishing": {
@@ -71,10 +66,10 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "5576/hooks.zip",
+      "bucketKey": "5603/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
-    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/812/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240530T153725Z&X-Amz-Expires=43200&X-Amz-Signature=ebf7ebc19c3554dd3dd5aead7d81c3877b26787f7deef92b741ee0eb0d18eb9d&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/819/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240603T083752Z&X-Amz-Expires=43200&X-Amz-Signature=6fc3493deb174de319236f9db0943a88d29362efc92e6384ab9fe8ef3c02ba26&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": false,
     "packageName": "celitech-php-test/sdk",
     "additionalConstructorParameters": [
