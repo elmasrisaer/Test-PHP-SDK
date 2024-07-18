@@ -20,6 +20,9 @@ use Celitech\Models\TopUpEsimRequest;
 
 class ESim extends BaseService
 {
+    /**
+     * Get eSIM Status
+     */
     public function getESIM(string $iccid): GetEsimOkResponse
     {
         $data = $this->sendRequest('get', '/esim', [
@@ -31,6 +34,9 @@ class ESim extends BaseService
         return Serializer::deserialize($data, GetEsimOkResponse::class);
     }
 
+    /**
+     * Get eSIM Device
+     */
     public function getESIMDevice(string $iccid): GetEsimDeviceOkResponse
     {
         $data = $this->sendRequest('get', "/esim/{$iccid}/device", []);
@@ -38,6 +44,9 @@ class ESim extends BaseService
         return Serializer::deserialize($data, GetEsimDeviceOkResponse::class);
     }
 
+    /**
+     * Get eSIM History
+     */
     public function getESIMHistory(string $iccid): GetEsimHistoryOkResponse
     {
         $data = $this->sendRequest('get', "/esim/{$iccid}/history", []);
@@ -45,6 +54,9 @@ class ESim extends BaseService
         return Serializer::deserialize($data, GetEsimHistoryOkResponse::class);
     }
 
+    /**
+     * Get eSIM MAC
+     */
     public function getESIMMac(string $iccid): GetEsimMacOkResponse
     {
         $data = $this->sendRequest('get', "/esim/{$iccid}/mac", []);

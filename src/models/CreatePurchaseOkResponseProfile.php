@@ -6,9 +6,15 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class CreatePurchaseOkResponseProfile
 {
+    /**
+     * ID of the eSIM
+     */
     #[SerializedName('iccid')]
     public ?string $iccid;
 
+    /**
+     * QR Code of the eSIM as base64
+     */
     #[SerializedName('activationCode')]
     public ?string $activationCode;
 
