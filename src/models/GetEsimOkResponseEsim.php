@@ -6,15 +6,27 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class GetEsimOkResponseEsim
 {
+    /**
+     * ID of the eSIM
+     */
     #[SerializedName('iccid')]
     public ?string $iccid;
 
+    /**
+     * SM-DP+ Address
+     */
     #[SerializedName('smdpAddress')]
     public ?string $smdpAddress;
 
+    /**
+     * The manual activation code
+     */
     #[SerializedName('manualActivationCode')]
     public ?string $manualActivationCode;
 
+    /**
+     * Status of the eSIM, possible values are 'RELEASED', 'DOWNLOADED', 'INSTALLED', 'ENABLED', 'DELETED', or 'ERROR'
+     */
     #[SerializedName('status')]
     public ?string $status;
 

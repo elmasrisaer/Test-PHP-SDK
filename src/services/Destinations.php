@@ -7,6 +7,9 @@ use Celitech\Models\ListDestinationsOkResponse;
 
 class Destinations extends BaseService
 {
+    /**
+     * List Destinations
+     */
     public function listDestinations(): ListDestinationsOkResponse
     {
         $data = $this->sendRequest('get', '/destinations', []);

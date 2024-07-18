@@ -86,6 +86,7 @@ $input = new CreatePurchaseRequest(
   startDate: "startDate",
   endDate: "endDate",
   email: "email",
+  referenceId: "referenceId",
   networkBrand: "networkBrand",
   startTime: 123,
   endTime: 123
@@ -114,6 +115,7 @@ $input = new TopUpEsimRequest(
   startDate: "startDate",
   endDate: "endDate",
   email: "email",
+  referenceId: "referenceId",
   startTime: 123,
   endTime: 123
 );

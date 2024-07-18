@@ -6,6 +6,9 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class TopUpEsimOkResponseProfile
 {
+    /**
+     * ID of the eSIM
+     */
     #[SerializedName('iccid')]
     public ?string $iccid;
 

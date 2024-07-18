@@ -1,6 +1,6 @@
 {
-  "liblabVersion": "2.1.11",
-  "date": "2024-06-03T08:37:56.765Z",
+  "liblabVersion": "2.1.19",
+  "date": "2024-07-18T10:26:03.917Z",
   "config": {
     "apiId": 819,
     "baseUrl": "https://api.celitech.net/v1",
@@ -11,7 +11,7 @@
     "languages": ["php"],
     "apiVersion": "1.1.71",
     "specFilePath": "swagger.yaml",
-    "createDocs": false,
+    "docs": ["snippets"],
     "languageOptions": {
       "php": {
         "packageName": "celitech-php-test/sdk",
@@ -66,10 +66,10 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "5603/hooks.zip",
+      "bucketKey": "6227/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
-    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/819/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240603T083752Z&X-Amz-Expires=43200&X-Amz-Signature=6fc3493deb174de319236f9db0943a88d29362efc92e6384ab9fe8ef3c02ba26&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/819/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240718T102602Z&X-Amz-Expires=43200&X-Amz-Signature=5ac1ba31ebf8b08227b15d883990397e2ad4ab64793e4adb817dd0b0e4d74d4c&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": false,
     "packageName": "celitech-php-test/sdk",
     "additionalConstructorParameters": [
@@ -152,6 +152,17 @@
     "src/models/GetEsimHistoryOkResponseEsim.php",
     "src/models/History.php",
     "src/models/GetEsimMacOkResponseEsim.php",
-    "src/utils/Serializer.php"
+    "src/utils/Serializer.php",
+    "documentation/snippets/destinations-get.md",
+    "documentation/snippets/packages-get.md",
+    "documentation/snippets/purchases-get.md",
+    "documentation/snippets/purchases-post.md",
+    "documentation/snippets/purchases-topup-post.md",
+    "documentation/snippets/purchases-edit-post.md",
+    "documentation/snippets/purchases-{purchaseId}-consumption-get.md",
+    "documentation/snippets/esim-get.md",
+    "documentation/snippets/esim-{iccid}-device-get.md",
+    "documentation/snippets/esim-{iccid}-history-get.md",
+    "documentation/snippets/esim-{iccid}-mac-get.md"
   ]
 }
