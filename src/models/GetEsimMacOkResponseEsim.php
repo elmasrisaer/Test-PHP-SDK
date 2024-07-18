@@ -6,12 +6,21 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class GetEsimMacOkResponseEsim
 {
+    /**
+     * ID of the eSIM
+     */
     #[SerializedName('iccid')]
     public ?string $iccid;
 
+    /**
+     * SM-DP+ Address
+     */
     #[SerializedName('smdpAddress')]
     public ?string $smdpAddress;
 
+    /**
+     * The manual activation code
+     */
     #[SerializedName('manualActivationCode')]
     public ?string $manualActivationCode;
 

@@ -8,6 +8,9 @@ use Celitech\Models\ListPackagesOkResponse;
 
 class Packages extends BaseService
 {
+    /**
+     * List Packages
+     */
     public function listPackages(
         string $destination = null,
         string $startDate = null,
